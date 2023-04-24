@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
+#include <stdlib.h>
 char *_strcpy(char *s1, const char *s2);
 char *_strncpy(char *s1, const char *s2, int n);
 int _strlen(const char *s);
