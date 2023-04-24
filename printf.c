@@ -1,7 +1,5 @@
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
 #include <unistd.h>
 #include "main.h"
 /**
@@ -48,9 +46,9 @@ int _printf(const char *format, ...)
 				f = get_esc(&format[i], j, format[i + j - 1]);
 			if (f == NULL)
 				return (err = -1);
-			write(STDIN_FILENO, f, strlen(f));
+			write(STDIN_FILENO, f, _strlen(f));
 			i += j - 1;
-			pcounter += strlen(f);
+			pcounter += _strlen(f);
 			free(f);
 		}
 		else

@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 /**
  * get_fs - get location of the format specifier
  * @format: adress of fs in format string
@@ -12,7 +11,7 @@ int get_fs(const char *format)
 	char fs[] = {'c', 's', '%'};
 	/* s and fs lengths */
 	int lfs = sizeof(fs) / sizeof(char);
-	int ls = strlen(format);
+	int ls = _strlen(format);
 	/* temp counter variables */
 	int i;
 	int j;
