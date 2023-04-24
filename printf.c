@@ -46,14 +46,14 @@ int _printf(const char *format, ...)
 				f = get_esc(&format[i], j, format[i + j - 1]);
 			if (f == NULL)
 				return (err = -1);
-			write(STDIN_FILENO, f, _strlen(f));
+			write(1, f, _strlen(f));
 			i += j - 1;
 			pcounter += _strlen(f);
 			free(f);
 		}
 		else
 		{
-			write(STDIN_FILENO, &format[i], 1);
+			write(1, &format[i], 1);
 			pcounter++;
 		}
 		i++;
