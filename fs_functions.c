@@ -88,7 +88,7 @@ char *get_s(const char *format, int i, char *arg)
 {
 	char *p;
 
-	if (!arg)
+	if (arg == NULL || arg = "")
 		return ("(null)");
 	(void) format;
 	(void) i;
