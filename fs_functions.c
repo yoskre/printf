@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 /**
  * get_c - gets the string corresponding to the value of c format specifier
  * @format: format string of c conversion specifier

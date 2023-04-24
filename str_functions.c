@@ -19,7 +19,6 @@ char *_strcpy(char *s1, const char *s2)
 	*s1 = '\0';
 	return (ptr);
 }
-
 /**
  * _strncpy - copy a string with a specified maximum length
  * @s1: the destination string
@@ -47,7 +46,6 @@ char *_strncpy(char *s1, const char *s2, int n)
 	}
 	return (ptr);
 }
-
 /**
  * _strlen - get the length of a string
  * @s: the string to get the length of
