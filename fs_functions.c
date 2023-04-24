@@ -11,25 +11,32 @@ int int_digits(int i)
 
 	if (i < 0)
 		count++;
-	while (i != 0) 
+	while (i != 0)
 	{
 		i /= 10;
 		count++;
 	}
 	return (count);
 }
-char* int_to_str(int num) 
+/**
+ * int_to_str - convert int to str
+ * @num: number
+ *
+ * Return: @num in the form of a string
+ */
+char *int_to_str(int num)
 {
 	int digit_count = int_digits(num);
-	char* str = (char*) malloc(sizeof(char) * (digit_count + 1));
+	char *str = malloc(sizeof(char) * (digit_count + 1));
 	int is_negative = 0;
+	int i;
 
 	if (num < 0)
 	{
 		is_negative = 1;
 		num = -num;
 	}
-	for (int i = digit_count - 1; i >= 0; i--)
+	for (i = digit_count - 1; i >= 0; i--)
 	{
 		str[i] = (num % 10) + '0';
 		num /= 10;
