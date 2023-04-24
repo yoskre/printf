@@ -15,4 +15,4 @@
 - [yoskre](https://github.com/yoskre)
 - [Monsif El Gouarti](https://github.com/Monsifelgouarti)
 ## Credits
-ASCII art was made using [this](https://ascii.co.uk).
+ASCII art was made using [this](https://ascii.co.uk) .
