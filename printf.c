@@ -28,6 +28,8 @@ int _printf(const char *format, ...)
 	int pcounter = 0, err, i = 0;
 	char *f;
 
+	if (!format)
+		return (err = -1);
 	va_start(arg, format);
 	while (format[i])
 	{
