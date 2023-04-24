@@ -12,21 +12,25 @@ int get_fs(const char *format)
 	int lfs = sizeof(fs) / sizeof(char);
 	int ls = _strlen(format);
 	/* temp counter variables */
-	int i;
+	int i = 1;
 	int j;
 
-	for (i = 0; i < ls; i++)
+	while (format[i])
+	{
 		if (format[i] != ' ')
 			break;
-	for (; i < ls; i++)
+		i++;
+	}
+	while (format[i])
 	{
 		if (format[i] == ' ')
 			break;
 		for (j = 0; j < lfs; j++)
 		{
 			if (format[i] == fs[j])
-				return (i + 2);
+				return (i + 1);
 		}
+		i++;
 	}
 	return (-1);
 }

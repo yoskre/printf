@@ -32,10 +32,13 @@ char *get_c(const char *format, int i, int arg)
  */
 char *get_s(const char *format, int i, char *arg)
 {
-	char *p = malloc(_strlen(arg) + 1);
+	char *p;
 
+	if (!arg)
+		return (NULL);
 	(void) format;
 	(void) i;
+	p = malloc(_strlen(arg) + 1);
 	if (p == NULL)
 	{
 		return (NULL);
