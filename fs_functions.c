@@ -89,7 +89,7 @@ char *get_s(const char *format, int i, char *arg)
 	char *p;
 
 	if (!arg)
-		return (NULL);
+		return ("(null)");
 	(void) format;
 	(void) i;
 	p = malloc(_strlen(arg) + 1);
