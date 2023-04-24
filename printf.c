@@ -26,38 +26,39 @@
  */
 int _printf(const char *format, ...)
 {
-	/* Variadic variable */
 	va_list arg;
-	/* Number of characters printed */
-	int pcounter = 0;
-	/* For now value should be set to -1 if there is an error */
-	int err;
-	/* Value of f should be set to the character to be printed */
+	int pcounter = 0, err, i = 0;
 	char *f;
-	/* Temporary counter */
-	size_t i;
 
 	va_start(arg, format);
-	for (i = 0; i < strlen(format); i++)
+	while (format[i])
 	{
-		f = malloc(sizeof(format[i] + 1));
-		if (f == NULL)
-			return (err = -1);
-		strncpy(f, &(format[i]), 1);
-		strncpy(f + 1, "\0", 1);
-		if (*f == '%')
+		if (format[i] == '%')
 		{
-			/* ------------ */
-			int j = get_fs(f);
+			int j;
 
+			j = get_fs(&format[i]);
 			if (j  < 0)
 				return (err = -1);
-			/* ------------- */
+			if (format[i + j - 1] == 'c')
+				f = get_c(&format[i], j, va_arg(arg, int));
+			else if (format[i + j - 1] == 's')
+				f = get_s(&format[i], j, va_arg(arg, char *));
+			else if (format[i + j - 1] == '%')
+				f = get_esc(&format[i], j, format[i + j - 1]);
+			if (f == NULL)
+				return (err = -1);
+			write(STDIN_FILENO, f, strlen(f));
+			i += j - 1;
+			pcounter += strlen(f);
+			free(f);
 		}
-		if (write(STDIN_FILENO, f, strlen(f)) < 0)
-			return (err = -1);
-		pcounter += strlen(f);
-		free(f);
+		else
+		{
+			write(STDIN_FILENO, &format[i], 1);
+			pcounter++;
+		}
+		i++;
 	}
 	return (pcounter);
 }

@@ -7,12 +7,12 @@
  *
  * Return: location of fs in @format
  */
-int get_fs(char *format)
+int get_fs(const char *format)
 {
 	char fs[] = {'c', 's', '%'};
 	/* s and fs lengths */
 	int lfs = sizeof(fs) / sizeof(char);
-	int ls = strlen(++format);
+	int ls = strlen(format);
 	/* temp counter variables */
 	int i;
 	int j;
