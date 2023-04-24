@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 /**
  * get_c - gets the string corresponding to the value of c format specifier
  * @format: format string of c conversion specifier
@@ -20,8 +19,8 @@ char *get_c(const char *format, int i, int arg)
 	{
 		return (NULL);
 	}
-	strncpy(p, &c, 1);
-	strncpy(p + 1, "\0", 1);
+	_strncpy(p, &c, 1);
+	_strncpy(p + 1, "\0", 1);
 	return (p);
 }
 /**
@@ -34,7 +33,7 @@ char *get_c(const char *format, int i, int arg)
  */
 char *get_s(const char *format, int i, char *arg)
 {
-	char *p = malloc(strlen(arg) + 1);
+	char *p = malloc(_strlen(arg) + 1);
 
 	(void) format;
 	(void) i;
@@ -42,7 +41,7 @@ char *get_s(const char *format, int i, char *arg)
 	{
 		return (NULL);
 	}
-	strcpy(p, arg);
+	_strcpy(p, arg);
 	return (p);
 }
 /**
@@ -63,7 +62,7 @@ char *get_esc(const char *format, int i, char arg)
 	{
 		return (NULL);
 	}
-	strncpy(p, &arg, 1);
-	strncpy(p + 1, "\0", 1);
+	_strncpy(p, &arg, 1);
+	_strncpy(p + 1, "\0", 1);
 	return (p);
 }
