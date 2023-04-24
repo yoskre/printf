@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 /**
  * get_fs - get location of the format specifier
  * @format: adress of fs in format string
