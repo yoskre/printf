@@ -6,7 +6,8 @@
   \ \  \___|\ \  \\  \\ \  \ \  \\ \  \   \ \  \ \ \  \_|
    \ \__\    \ \__\\ _\\ \__\ \__\\ \__\   \ \__\ \ \__\
     \|__|     \|__|\|__|\|__|\|__| \|__|    \|__|  \|__|
-</pre>                                                                                                                                                                        
+</pre>
+
 # An implementation of the printf function using ✨**C**✨
 *Part of the ALX software engeneering program.*
 ## Table of contents (TOC)
@@ -15,4 +16,4 @@
 - [yoskre](https://github.com/yoskre)
 - [Monsif El Gouarti](https://github.com/Monsifelgouarti)
 ## Credits
-ASCII art was made using [this](https://ascii.co.uk) .
+ASCII art was made using [this](https://ascii.co.uk).

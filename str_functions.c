@@ -63,3 +63,23 @@ int _strlen(const char *s)
 	}
 	return (len);
 }
+/**
+ * _strcat - concatenate two strings
+ * @destination: destrination string
+ * @source: source string
+ *
+ * Return: pointer to concatenated string
+ */
+char *_strcat(char *destination, const char *source)
+{
+	int dest_len;
+	int i;
+
+	dest_len = _strlen(destination);
+	for (i = 0; source[i] != '\0'; i++)
+	{
+		destination[dest_len + i] = source[i];
+	}
+	destination[dest_len + i] = '\0';
+	return (destination);
+}

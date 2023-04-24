@@ -1,25 +1,72 @@
 #include "main.h"
 /**
- * get_c - gets the string corresponding to the value of c format specifier
+ * int_digits - number of digits in an integer
+ * @i: integer
+ *
+ * Return: number of digits in @i
+ */
+int int_digits(int i)
+{
+	int count = 0;
+
+	if (i < 0)
+		count++;
+	while (i != 0) 
+	{
+		i /= 10;
+		count++;
+	}
+	return (count);
+}
+char* int_to_str(int num) 
+{
+	int digit_count = int_digits(num);
+	char* str = (char*) malloc(sizeof(char) * (digit_count + 1));
+	int is_negative = 0;
+
+	if (num < 0)
+	{
+		is_negative = 1;
+		num = -num;
+	}
+	for (int i = digit_count - 1; i >= 0; i--)
+	{
+		str[i] = (num % 10) + '0';
+		num /= 10;
+	}
+	if (is_negative)
+	{
+		str[0] = '-';
+	}
+	str[digit_count] = '\0';
+	return (str);
+}
+/**
+ * get_int - gets the string corresponding to the value of c format specifier
  * @format: format string of c conversion specifier
  * @i: location of c in @format
  * @arg: value of c
  *
  * Return: value of c as a string
  */
-char *get_c(const char *format, int i, int arg)
+char *get_int(const char *format, int i, int arg)
 {
-	char c = arg;
-	char *p = malloc(sizeof(char) + 1);
+	char *p;
 
-	(void) format;
-	(void) i;
-	if (p == NULL)
+	if (format[i - 1] == 'c')
 	{
-		return (NULL);
+		char c = arg;
+
+		p = malloc(sizeof(char) + 1);
+		(void) format;
+		(void) i;
+		if (p == NULL)
+			return (NULL);
+		_strncpy(p, &c, 1);
+		_strncpy(p + 1, "\0", 1);
 	}
-	_strncpy(p, &c, 1);
-	_strncpy(p + 1, "\0", 1);
+	else
+		p = int_to_str(arg);
 	return (p);
 }
 /**

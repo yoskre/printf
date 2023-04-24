@@ -7,7 +7,8 @@
  */
 int get_fs(const char *format)
 {
-	char fs[] = {'c', 's', '%'};
+	char fs[] = {'c', 's', '%',
+	       'd', 'i'};
 	/* s and fs lengths */
 	int lfs = sizeof(fs) / sizeof(char);
 	/* temp counter variables */

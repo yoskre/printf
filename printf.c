@@ -40,16 +40,17 @@ int _printf(const char *format, ...)
 			j = get_fs(&format[i]);
 			if (j  < 0)
 			{
-				return (err = -1);
+				return (pcounter);
 			}
-			if (format[i + j - 1] == 'c')
-				f = get_c(&format[i], j, va_arg(arg, int));
+			if (format[i + j - 1] == 'c' || format[i + j - 1] == 'd'
+					|| format[i + j - 1] == 'i')
+				f = get_int(&format[i], j, va_arg(arg, int));
 			else if (format[i + j - 1] == 's')
 				f = get_s(&format[i], j, va_arg(arg, char *));
 			else if (format[i + j - 1] == '%')
 				f = get_esc(&format[i], j, format[i + j - 1]);
 			if (f == NULL)
-				return (err = -1);
+				return (pcounter);
 			write(1, f, _strlen(f));
 			i += j - 1;
 			pcounter += _strlen(f);
