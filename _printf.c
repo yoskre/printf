@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 				return (pcounter);
 			}
 			if (format[i + j - 1] == 'c' || format[i + j - 1] == 'd'
-					|| format[i + j - 1] == 'i')
+				|| format[i + j - 1] == 'i' || format[i + j - 1] == 'b')
 				f = get_int(&format[i], j, va_arg(arg, int));
 			else if (format[i + j - 1] == 's')
 				f = get_s(&format[i], j, va_arg(arg, char *));
