@@ -49,6 +49,37 @@ char *int_to_str(int num)
 	return (str);
 }
 /**
+ * decimal_to_binary_str - convert decimal integer to binary string
+ * @decimal: decimal integer to convert
+ *
+ * Return: pointer to binary string
+ */
+char *decimal_to_binary_str(int decimal)
+{
+	int i, remainder, quotient;
+	char *binary_str;
+	int binary_str_len = 0;
+	/* find the length of the binary string */
+	quotient = decimal;
+	do {
+	binary_str_len++;
+	quotient /= 2;
+	} while (quotient > 0);
+	/* allocate memory for the binary string */
+	binary_str = malloc(sizeof(char) * (binary_str_len + 1));
+	if (binary_str == NULL)
+		return (NULL);
+	/* convert the decimal to binary and store in string */
+	for (i = binary_str_len - 1; i >= 0; i--)
+	{
+		remainder = decimal % 2;
+		decimal /= 2;
+		binary_str[i] = remainder + '0';
+	}
+	binary_str[binary_str_len] = '\0';
+	return (binary_str);
+}
+/**
  * get_int - gets the string corresponding to the value of c format specifier
  * @format: format string of c conversion specifier
  * @i: location of c in @format
@@ -72,6 +103,8 @@ char *get_int(const char *format, int i, int arg)
 		_strncpy(p, &c, 1);
 		_strncpy(p + 1, "\0", 1);
 	}
+	else if (format[i - 1] == 'b')
+		decimal_to_binary_str(arg);
 	else
 		p = int_to_str(arg);
 	return (p);
