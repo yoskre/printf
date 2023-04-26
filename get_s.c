@@ -1,3 +1,4 @@
+#include <string.h>
 #include "main.h"
 /**
  * get_s - gets the string corresponding to the value of s format specifier
@@ -13,7 +14,7 @@ char *get_s(const char *format, int i, char *arg)
 
 	(void) format;
 	(void) i;
-	if (arg == NULL || arg == "\0")
+	if (arg == NULL || *arg == '\0')
 	{
 		p = malloc(sizeof(char) * 7);
 		if (p == NULL)
