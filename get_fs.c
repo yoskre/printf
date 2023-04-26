@@ -28,7 +28,7 @@ int get_fs(const char *format)
 		for (j = 0; j < lfs; j++)
 		{
 			if (format[i] == fs[j])
-				return (i + 1);
+				return (i);
 		}
 		i++;
 	}

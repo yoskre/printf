@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 			if (f == NULL)
 				return (pcounter);
 			write(1, f, _strlen(f));
-			i += j - 1;
+			i += j;
 			pcounter += _strlen(f);
 			free(f);
 		}

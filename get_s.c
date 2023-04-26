@@ -11,15 +11,21 @@ char *get_s(const char *format, int i, char *arg)
 {
 	char *p;
 
-	if (!arg)
-		return ("(null)");
 	(void) format;
 	(void) i;
-	p = malloc(_strlen(arg) + 1);
-	if (p == NULL)
+	if (arg == NULL || arg == "\0")
 	{
-		return (NULL);
+		p = malloc(sizeof(char) * 7);
+		if (p == NULL)
+			return (NULL);
+		strncpy(p, "(null)\0", 7);
 	}
-	_strcpy(p, arg);
+	else
+	{
+		p = malloc(_strlen(arg) + 1);
+		if (p == NULL)
+			return (NULL);
+		strncpy(p, arg, strlen(arg));
+	}
 	return (p);
 }
