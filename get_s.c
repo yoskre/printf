@@ -26,7 +26,7 @@ char *get_s(const char *format, int i, char *arg)
 		p = malloc(_strlen(arg) + 1);
 		if (p == NULL)
 			return (NULL);
-		strncpy(p, arg, strlen(arg));
+		strncpy(p, arg, strlen(arg) + 1);
 	}
 	return (p);
 }
