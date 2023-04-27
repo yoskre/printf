@@ -91,17 +91,28 @@ char *get_int(const char *format, int i, int arg)
 {
 	char *p;
 
+	(void) format;
+	(void) i;
 	if (format[i] == 'c')
 	{
 		char c = arg;
-
-		p = malloc(sizeof(char) + 1);
-		(void) format;
-		(void) i;
-		if (p == NULL)
-			return (NULL);
-		_strncpy(p, &c, 1);
-		_strncpy(p + 1, "\0", 1);
+		
+		if (c == '\0')
+		{
+			p = malloc(sizeof(char) + 1);
+			if (p == NULL)
+				return (NULL);
+			_strncpy(p, " ", 1);
+			_strncpy(p + 1, "\0", 1);
+		}
+		else
+		{
+			p = malloc(sizeof(char) + 1);
+			if (p == NULL)
+				return (NULL);
+			_strncpy(p, &c, 1);
+			_strncpy(p + 1, "\0", 1);
+		}
 	}
 	else if (format[i] == 'b')
 		decimal_to_binary_str(arg);
