@@ -91,7 +91,7 @@ char *get_int(const char *format, int i, int arg)
 {
 	char *p;
 
-	if (format[i - 1] == 'c')
+	if (format[i] == 'c')
 	{
 		char c = arg;
 
@@ -103,7 +103,7 @@ char *get_int(const char *format, int i, int arg)
 		_strncpy(p, &c, 1);
 		_strncpy(p + 1, "\0", 1);
 	}
-	else if (format[i - 1] == 'b')
+	else if (format[i] == 'b')
 		decimal_to_binary_str(arg);
 	else
 		p = int_to_str(arg);
