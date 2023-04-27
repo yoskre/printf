@@ -14,19 +14,19 @@ char *get_s(const char *format, int i, char *arg)
 
 	(void) format;
 	(void) i;
-	if (*arg == '\0' || strcmp(arg,"") == 0)
-	{
-		p = malloc(sizeof(char));
-		if (p == NULL)
-			return (NULL);
-		strncpy(p, "\0", 1);
-	}
 	if (arg == NULL)
 	{
 		p = malloc(sizeof(char) * 7);
 		if (p == NULL)
 			return (NULL);
 		strncpy(p, "(null)\0", 7);
+	}
+	else if (*arg == '\0' || strcmp(arg,"") == 0)
+	{
+		p = malloc(sizeof(char));
+		if (p == NULL)
+			return (NULL);
+		strncpy(p, "\0", 1);
 	}
 	else
 	{
