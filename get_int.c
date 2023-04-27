@@ -96,7 +96,7 @@ char *get_int(const char *format, int i, int arg)
 	if (format[i] == 'c')
 	{
 		char c = arg;
-		
+	
 		if (c == '\0')
 		{
 			p = malloc(sizeof(char) + 1);
@@ -115,7 +115,7 @@ char *get_int(const char *format, int i, int arg)
 		}
 	}
 	else if (format[i] == 'b')
-		decimal_to_binary_str(arg);
+		p = decimal_to_binary_str(arg);
 	else
 		p = int_to_str(arg);
 	return (p);

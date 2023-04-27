@@ -21,7 +21,7 @@ char *get_s(const char *format, int i, char *arg)
 			return (NULL);
 		strncpy(p, "(null)\0", 7);
 	}
-	else if (*arg == '\0' || strcmp(arg,"") == 0)
+	else if (*arg == '\0' || strcmp(arg, "") == 0)
 	{
 		p = malloc(sizeof(char));
 		if (p == NULL)
