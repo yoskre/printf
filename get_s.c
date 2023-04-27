@@ -14,7 +14,7 @@ char *get_s(const char *format, int i, char *arg)
 
 	(void) format;
 	(void) i;
-	if (*arg == '\0' || arg == "")
+	if (*arg == '\0' || strcmp(arg,"") == 0)
 	{
 		p = malloc(sizeof(char));
 		if (p == NULL)
