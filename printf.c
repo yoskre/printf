@@ -42,13 +42,13 @@ int _printf(const char *format, ...)
 			{
 				return (pcounter);
 			}
-			if (format[i + j - 1] == 'c' || format[i + j - 1] == 'd'
-				|| format[i + j - 1] == 'i' || format[i + j - 1] == 'b')
+			if (format[i + j] == 'c' || format[i + j] == 'd'
+				|| format[i + j] == 'i' || format[i + j] == 'b')
 				f = get_int(&format[i], j, va_arg(arg, int));
-			else if (format[i + j - 1] == 's')
+			else if (format[i + j] == 's')
 				f = get_s(&format[i], j, va_arg(arg, char *));
-			else if (format[i + j - 1] == '%')
-				f = get_esc(&format[i], j, format[i + j - 1]);
+			else if (format[i + j] == '%')
+				f = get_esc(&format[i], j, format[i + j]);
 			if (f == NULL)
 				return (pcounter);
 			write(1, f, _strlen(f));
